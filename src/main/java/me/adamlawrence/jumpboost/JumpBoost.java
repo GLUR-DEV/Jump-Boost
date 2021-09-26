@@ -51,13 +51,17 @@ public final class JumpBoost extends JavaPlugin implements Listener {
         ItemStack i = e.getItem();
 
         //Cooldown added here:
-        if (cooldown.containsKey(p.getName())) {
-            // player inside hashmap
-            if (cooldown.get(p.getName()) > System.currentTimeMillis()) {
-                // This means they still have a cooldown
-                long timeleft = (cooldown.get(p.getName()) - System.currentTimeMillis()) / 1000;
-                p.sendMessage(ChatColor.RED + "You will be able to use JumpBoost in " + timeleft + " second(s)");
-                return;
+        if (i.getType().equals(Material.FEATHER)) {
+            if (a == Action.RIGHT_CLICK_AIR || a == Action.RIGHT_CLICK_BLOCK) {
+                if (cooldown.containsKey(p.getName())) {
+                    // player inside hashmap
+                    if (cooldown.get(p.getName()) > System.currentTimeMillis()) {
+                        // This means they still have a cooldown
+                        long timeleft = (cooldown.get(p.getName()) - System.currentTimeMillis()) / 1000;
+                        p.sendMessage(ChatColor.RED + "You will be able to use JumpBoost in " + timeleft + " second(s)");
+                        return;
+                    }
+                }
             }
         }
 
@@ -67,6 +71,7 @@ public final class JumpBoost extends JavaPlugin implements Listener {
                 int JumpMult = this.getConfig().getInt("JumpMult");
                 int BoostLength = this.getConfig().getInt("BoostLength");
                 p.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, BoostLength, JumpMult));
+
                 // Putting cooldown on player
                 int CooldownLength = this.getConfig().getInt("CooldownLength");
                 cooldown.put(p.getName(), System.currentTimeMillis() + (CooldownLength));
