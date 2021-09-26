@@ -1,0 +1,5 @@
+name: JumpBoost
+version: '${project.version}'
+main: me.adamlawrence.jumpboost.JumpBoost
+authors: [ GLURDevelopment ]
+description: JumpBoost

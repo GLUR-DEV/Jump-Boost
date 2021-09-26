@@ -1,0 +1,16 @@
+#Hello welcome to my config file this plugin took 5 mins make lol
+#You can customize most of the stuff inside here
+#Sorry it's all in the main class, it's because I'm too lazy to organize the plugin
+#Go check out my GitHub for the source code and other cool plugins to copy and paste off ;)
+
+#GitHub:
+#This respitory(GitHub):
+
+#Configure away!!!
+
+#Strength of the jump boost
+JumpMult: 5
+#Cooldown of the jump boost(in milliseconds)
+CooldownLength: 20000
+#Length of the jump boost effect(in ticks)
+BoostLength: 100
